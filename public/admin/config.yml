@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Bhatta-om/cecsd-nepal
   branch: main
+  base_url: https://cms-oauth.omprakashbhatt731.workers.dev
+  auth_endpoint: /api/auth
 
 media_folder: public/images
 public_folder: /images
@@ -11,9 +14,8 @@ collections:
     files:
       - name: "site_content"
         label: "All Content"
-        file: "content/site.json"
+        file: "public/content/site.json"
         fields:
-          # HERO
           - label: "🏠 Hero Section"
             name: "hero"
             widget: "object"
@@ -25,7 +27,6 @@ collections:
               - { label: "Primary Button", name: "btn_primary", widget: "string" }
               - { label: "Secondary Button", name: "btn_secondary", widget: "string" }
 
-          # ABOUT
           - label: "ℹ️ About Section"
             name: "about"
             widget: "object"
@@ -35,7 +36,6 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Years of Service", name: "years_of_service", widget: "string" }
 
-          # STATS
           - label: "📊 Statistics"
             name: "stats"
             widget: "list"
@@ -43,7 +43,6 @@ collections:
               - { label: "Value", name: "value", widget: "string" }
               - { label: "Label", name: "label", widget: "string" }
 
-          # VMG
           - label: "🎯 Vision Mission Goal"
             name: "vmg"
             widget: "list"
@@ -52,7 +51,6 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
 
-          # PROGRAMS
           - label: "📚 Programs"
             name: "programs"
             widget: "list"
@@ -71,7 +69,6 @@ collections:
                   - "border-purple-700"
                   - "border-teal-700"
 
-          # STRATEGIES
           - label: "🎯 Strategies"
             name: "strategies"
             widget: "list"
@@ -79,7 +76,6 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
 
-          # TEAM
           - label: "👥 Executive Committee"
             name: "team"
             widget: "list"
@@ -95,7 +91,6 @@ collections:
                   - { label: "Male", value: "M" }
                   - { label: "Female", value: "F" }
 
-          # CORE STAFF
           - label: "🧑‍💼 Core Staff"
             name: "core_staff"
             widget: "list"
@@ -104,7 +99,6 @@ collections:
               - { label: "Role", name: "role", widget: "string" }
               - { label: "Phone", name: "phone", widget: "string", required: false }
 
-          # GALLERY
           - label: "🖼️ Gallery"
             name: "gallery"
             widget: "list"
