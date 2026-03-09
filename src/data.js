@@ -1,3 +1,9 @@
+// Dynamic data loader
+export async function loadSiteData() {
+  const res = await fetch('/content/site.json');
+  return res.json();
+}
+
 export const NAV_LINKS = ["Home", "About", "Programs", "Team", "Gallery", "Contact"];
 
 export const STATS = [

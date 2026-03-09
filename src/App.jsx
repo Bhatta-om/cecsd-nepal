@@ -1,9 +1,10 @@
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import StatsBar from "./components/StatsBar";
 import About from "./components/About";
 import Programs from "./components/Programs";
 import Strategies from "./components/Strategies";
+import StatsBar from "./components/StatsBar";
 import Team from "./components/Team";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
@@ -11,23 +12,30 @@ import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
 import BackToTop from "./components/BackToTop";
 
-function App() {
+export default function App() {
+  const [siteData, setSiteData] = useState(null);
+
+  useEffect(() => {
+    fetch('/content/site.json')
+      .then(res => res.json())
+      .then(data => setSiteData(data))
+      .catch(() => setSiteData(null));
+  }, []);
+
   return (
-    <div className="bg-[#FAFAF5]">
+    <>
       <Preloader />
       <Navbar />
-      <Hero />
-      <StatsBar />
-      <About />
-      <Programs />
-      <Strategies />
-      <Team />
-      <Gallery />
+      <Hero data={siteData?.hero} />
+      <StatsBar data={siteData?.stats} />
+      <About data={siteData?.about} vmg={siteData?.vmg} />
+      <Programs data={siteData?.programs} />
+      <Strategies data={siteData?.strategies} />
+      <Team data={siteData?.team} staff={siteData?.core_staff} />
+      <Gallery data={siteData?.gallery} />
       <Contact />
       <Footer />
       <BackToTop />
-    </div>
+    </>
   );
 }
-
-export default App;

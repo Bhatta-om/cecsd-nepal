@@ -1,0 +1,129 @@
+{
+  "hero": {
+    "tag": "NGO · Sudurpachim Province · Nepal",
+    "heading_line1": "Empowering Communities,",
+    "heading_line2": "Protecting Rights",
+    "description": "CSDS Nepal is a nonprofit development organization rooted in Kailali, dedicated to human rights advocacy, anti-trafficking, peace building, and community upliftment since 2019.",
+    "btn_primary": "Explore Our Work",
+    "btn_secondary": "Partner With Us"
+  },
+  "about": {
+    "tag": "About CECSD Nepal",
+    "heading": "A Community-Led Development Organization",
+    "description": "Founded in 2075 B.S. (2019) by experienced community development professionals, CSDS Nepal operates from Dhangadhi, Kailali. We champion rights, dignity, and opportunity for the most marginalized communities in Sudurpachim Province.",
+    "years_of_service": "5+"
+  },
+  "stats": [
+    { "value": "2019", "label": "Year Founded" },
+    { "value": "9+", "label": "Team Members" },
+    { "value": "4", "label": "Program Areas" },
+    { "value": "50470", "label": "SWC Reg. No." }
+  ],
+  "vmg": [
+    {
+      "icon": "🌟",
+      "title": "Vision",
+      "desc": "Sustained peace and a developed society through empowerment of people living in difficult circumstances."
+    },
+    {
+      "icon": "🎯",
+      "title": "Mission",
+      "desc": "Ensuring rights of marginalized women and children through advocacy, capacity building, and leadership development."
+    },
+    {
+      "icon": "🏆",
+      "title": "Goal",
+      "desc": "Strengthen systems to enable access to formal education, TEVT skills, and combat all forms of discrimination."
+    }
+  ],
+  "programs": [
+    {
+      "icon": "⚖️",
+      "title": "Human Rights & Advocacy",
+      "desc": "We educate communities on their rights, advocate for victims, and promote equality and inclusion across Sudurpachim Province.",
+      "color": "border-emerald-700"
+    },
+    {
+      "icon": "🕊️",
+      "title": "Peace Building",
+      "desc": "Leveraging expertise in post-conflict situations, we facilitate reconciliation and promote sustained peace at the grassroots level.",
+      "color": "border-blue-800"
+    },
+    {
+      "icon": "🚫",
+      "title": "Anti-Trafficking & Modern Slavery",
+      "desc": "Running awareness campaigns against human trafficking and labor exploitation, empowering vulnerable women and youth.",
+      "color": "border-red-800"
+    },
+    {
+      "icon": "🤝",
+      "title": "Community Mobilization",
+      "desc": "Building trust through participatory approaches, stakeholder mapping, volunteer coordination and grassroots capacity development.",
+      "color": "border-indigo-700"
+    },
+    {
+      "icon": "📚",
+      "title": "Education & Livelihood",
+      "desc": "Strengthening access to formal education, TEVT skills training, and entrepreneurship support to improve youth employability.",
+      "color": "border-purple-700"
+    },
+    {
+      "icon": "🌐",
+      "title": "Networking & Partnership",
+      "desc": "Coordinating with GOs, NGOs, and INGOs to create strong networks that amplify impact across the community.",
+      "color": "border-teal-700"
+    }
+  ],
+  "strategies": [
+    { "title": "Human Rights", "desc": "Support and sustain human rights through education, advocacy, and direct support for victims." },
+    { "title": "Advocacy", "desc": "Make communities aware of rights-based approaches through training and targeted campaigns." },
+    { "title": "Peace Building", "desc": "Publicize expertise in peace-building in post-conflict environments." },
+    { "title": "Networking", "desc": "Coordinate with district agencies and CBOs for strong unified social impact." },
+    { "title": "Partnership", "desc": "Collaborate with GOs, NGOs, and INGOs to scale programs at field level." },
+    { "title": "Capacity Building", "desc": "Provide trainings in leadership, PRA, conflict management, and more." },
+    { "title": "Research", "desc": "Study and investigate needs and potential programs for sustainability." }
+  ],
+  "team": [
+    { "name": "Mr. Hari Joshi", "role": "Chairperson", "edu": "Masters", "exp": "12 Yrs", "gender": "M" },
+    { "name": "Mr. Yagya Raj Pathak", "role": "Vice-Chairperson", "edu": "B.A.", "exp": "12 Yrs", "gender": "M" },
+    { "name": "Ms. Urmila Bhatta", "role": "Secretary", "edu": "M.A.", "exp": "15 Yrs", "gender": "F" },
+    { "name": "Ms. Kusum Bhatta", "role": "Treasurer", "edu": "M.A.", "exp": "10 Yrs", "gender": "F" },
+    { "name": "Mr. Birendra Chaudhari", "role": "Executive Member", "edu": "M.A.", "exp": "15 Yrs", "gender": "M" },
+    { "name": "Mr. Lok Raj Bhatta", "role": "Executive Member", "edu": "B.A.", "exp": "5 Yrs", "gender": "M" },
+    { "name": "Mr. Chandra Chaudhari", "role": "Executive Member", "edu": "B.A.", "exp": "12 Yrs", "gender": "M" },
+    { "name": "Mr. Mukunda Bhatta", "role": "Executive Member", "edu": "MCA", "exp": "8 Yrs", "gender": "M" },
+    { "name": "Ms. Sita Joshi", "role": "Executive Member", "edu": "B.A.", "exp": "1 Yr", "gender": "F" }
+  ],
+  "core_staff": [
+    { "name": "Tap Raj Joshi", "role": "Executive Director", "phone": "9858424892" },
+    { "name": "Indra Kant Pant", "role": "Program Manager", "phone": "9851160169" },
+    { "name": "Sarmila Pathak", "role": "Field Staff / Social Mobilizer", "phone": "" }
+  ],
+  "gallery": [
+    { "src": "/images/image1.jpeg", "label": "Pradesh Sabha Visit", "category": "Events" },
+    { "src": "/images/image2.jpeg", "label": "SDG Youth Program", "category": "Events" },
+    { "src": "/images/image3.jpeg", "label": "Peace Building Activity", "category": "Field" },
+    { "src": "/images/image4.jpeg", "label": "Community Meeting", "category": "Meetings" },
+    { "src": "/images/image5.jpeg", "label": "Social Audit Training", "category": "Training" },
+    { "src": "/images/image6.jpeg", "label": "School Awareness", "category": "Education" },
+    { "src": "/images/image7.jpeg", "label": "Youth Leadership Training", "category": "Training" },
+    { "src": "/images/image8.jpeg", "label": "MSI Program Launch", "category": "Events" },
+    { "src": "/images/image9.jpeg", "label": "Stakeholder Meeting", "category": "Meetings" },
+    { "src": "/images/image10.jpeg", "label": "Youth Orientation", "category": "Training" },
+    { "src": "/images/img-1.jpeg", "label": "Community Outreach", "category": "Field" },
+    { "src": "/images/img-2.jpeg", "label": "Community Circle Meeting", "category": "Meetings" },
+    { "src": "/images/img-3.jpeg", "label": "Public Awareness Event", "category": "Events" },
+    { "src": "/images/img-4.jpeg", "label": "Women's Group Session", "category": "Field" },
+    { "src": "/images/img-5.jpeg", "label": "Field Coordination", "category": "Field" },
+    { "src": "/images/img-6.jpeg", "label": "Indoor Workshop", "category": "Training" },
+    { "src": "/images/img-7.jpeg", "label": "HR Meet Conference", "category": "Events" },
+    { "src": "/images/img-8.jpeg", "label": "Outdoor Community Session", "category": "Meetings" },
+    { "src": "/images/img-9.jpeg", "label": "Office Meeting", "category": "Meetings" },
+    { "src": "/images/img-10.jpeg", "label": "Ward Level Meeting", "category": "Meetings" },
+    { "src": "/images/img-11.jpeg", "label": "Youth Training Session", "category": "Training" },
+    { "src": "/images/img-12.jpeg", "label": "Stakeholder Consultation", "category": "Meetings" },
+    { "src": "/images/img-13.jpeg", "label": "Field Visit", "category": "Field" },
+    { "src": "/images/img-14.jpeg", "label": "Community Facilitation", "category": "Training" },
+    { "src": "/images/img-15.jpeg", "label": "Group Photo Session", "category": "Events" }
+  ]
+}

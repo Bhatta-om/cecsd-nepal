@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { STATS } from "../data";
 
+const DEFAULT_STATS = STATS;
+
 function StatCard({ value, label }) {
   const [count, setCount] = useState(0);
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
 
-  // Trigger when visible on screen
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => e.isIntersecting && setVisible(true),
@@ -16,7 +17,6 @@ function StatCard({ value, label }) {
     return () => obs.disconnect();
   }, []);
 
-  // Count up animation
   useEffect(() => {
     if (!visible) return;
     const num = parseInt(value.replace(/[^0-9]/g, "")) || 0;
@@ -50,12 +50,14 @@ function StatCard({ value, label }) {
   );
 }
 
-export default function StatsBar() {
+export default function StatsBar({ data }) {
+  const stats = data || DEFAULT_STATS;
+
   return (
     <div className="bg-[#0a1208] border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4">
-          {STATS.map((s) => (
+          {stats.map((s) => (
             <StatCard key={s.label} {...s} />
           ))}
         </div>

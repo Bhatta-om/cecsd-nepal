@@ -6,136 +6,117 @@ media_folder: public/images
 public_folder: /images
 
 collections:
-  # ==================
-  # SITE SETTINGS
-  # ==================
-  - name: "site_settings"
-    label: "⚙️ Site Settings"
+  - name: "site"
+    label: "🌐 Website Content"
     files:
-      - name: "stats"
-        label: "Statistics (Numbers)"
-        file: "content/stats.json"
+      - name: "site_content"
+        label: "All Content"
+        file: "content/site.json"
         fields:
-          - label: "Stats"
+          # HERO
+          - label: "🏠 Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Tag Line", name: "tag", widget: "string" }
+              - { label: "Heading Line 1", name: "heading_line1", widget: "string" }
+              - { label: "Heading Line 2", name: "heading_line2", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Primary Button", name: "btn_primary", widget: "string" }
+              - { label: "Secondary Button", name: "btn_secondary", widget: "string" }
+
+          # ABOUT
+          - label: "ℹ️ About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Tag", name: "tag", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Years of Service", name: "years_of_service", widget: "string" }
+
+          # STATS
+          - label: "📊 Statistics"
             name: "stats"
             widget: "list"
             fields:
               - { label: "Value", name: "value", widget: "string" }
               - { label: "Label", name: "label", widget: "string" }
 
-  # ==================
-  # PROGRAMS
-  # ==================
-  - name: "programs"
-    label: "📚 Programs"
-    folder: "content/programs"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Icon (emoji)", name: "icon", widget: "string" }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "desc", widget: "text" }
-      - label: "Border Color"
-        name: "color"
-        widget: "select"
-        options:
-          - "border-emerald-700"
-          - "border-blue-800"
-          - "border-red-800"
-          - "border-indigo-700"
-          - "border-purple-700"
-          - "border-teal-700"
+          # VMG
+          - label: "🎯 Vision Mission Goal"
+            name: "vmg"
+            widget: "list"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
 
-  # ==================
-  # STRATEGIES
-  # ==================
-  - name: "strategies"
-    label: "🎯 Strategies"
-    folder: "content/strategies"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "desc", widget: "text" }
+          # PROGRAMS
+          - label: "📚 Programs"
+            name: "programs"
+            widget: "list"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - label: "Border Color"
+                name: "color"
+                widget: "select"
+                options:
+                  - "border-emerald-700"
+                  - "border-blue-800"
+                  - "border-red-800"
+                  - "border-indigo-700"
+                  - "border-purple-700"
+                  - "border-teal-700"
 
-  # ==================
-  # TEAM MEMBERS
-  # ==================
-  - name: "team"
-    label: "👥 Team Members"
-    folder: "content/team"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Full Name", name: "name", widget: "string" }
-      - { label: "Role/Position", name: "role", widget: "string" }
-      - { label: "Education", name: "edu", widget: "string" }
-      - { label: "Experience", name: "exp", widget: "string" }
-      - label: "Gender"
-        name: "gender"
-        widget: "select"
-        options:
-          - { label: "Male", value: "M" }
-          - { label: "Female", value: "F" }
+          # STRATEGIES
+          - label: "🎯 Strategies"
+            name: "strategies"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
 
-  # ==================
-  # CORE STAFF
-  # ==================
-  - name: "core_staff"
-    label: "🧑‍💼 Core Staff"
-    folder: "content/staff"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "Full Name", name: "name", widget: "string" }
-      - { label: "Role", name: "role", widget: "string" }
-      - { label: "Phone", name: "phone", widget: "string", required: false }
+          # TEAM
+          - label: "👥 Executive Committee"
+            name: "team"
+            widget: "list"
+            fields:
+              - { label: "Full Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Education", name: "edu", widget: "string" }
+              - { label: "Experience", name: "exp", widget: "string" }
+              - label: "Gender"
+                name: "gender"
+                widget: "select"
+                options:
+                  - { label: "Male", value: "M" }
+                  - { label: "Female", value: "F" }
 
-  # ==================
-  # GALLERY
-  # ==================
-  - name: "gallery"
-    label: "🖼️ Gallery"
-    folder: "content/gallery"
-    create: true
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-      - label: "Category"
-        name: "category"
-        widget: "select"
-        options:
-          - "Community Meeting"
-          - "Field Activities"
-          - "Advocacy Program"
-          - "Capacity Building"
-          - "Women Empowerment"
-          - "Peace Building"
-          - "Anti-Trafficking Awareness"
-          - "Youth Program"
-          - "Training Session"
-          - "Community Outreach"
-      - { label: "Date", name: "date", widget: "datetime", required: false }
+          # CORE STAFF
+          - label: "🧑‍💼 Core Staff"
+            name: "core_staff"
+            widget: "list"
+            fields:
+              - { label: "Full Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string", required: false }
 
-  # ==================
-  # NEWS & UPDATES
-  # ==================
-  - name: "news"
-    label: "📰 News & Updates"
-    folder: "content/news"
-    create: true
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Cover Image", name: "image", widget: "image", required: false }
-      - label: "Category"
-        name: "category"
-        widget: "select"
-        options:
-          - "News"
-          - "Event"
-          - "Achievement"
-          - "Announcement"
-      - { label: "Content", name: "body", widget: "markdown" }
+          # GALLERY
+          - label: "🖼️ Gallery"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Label/Caption", name: "label", widget: "string" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Events"
+                  - "Training"
+                  - "Meetings"
+                  - "Field"
+                  - "Education"

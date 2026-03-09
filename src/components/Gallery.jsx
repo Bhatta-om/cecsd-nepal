@@ -1,8 +1,7 @@
 import { useState } from "react";
 import useFadeUp from "../hooks/useFadeUp";
 
-const ALL_IMAGES = [
-  // Existing 10
+const DEFAULT_IMAGES = [
   { src: "/images/image1.jpeg", label: "Pradesh Sabha Visit", category: "Events" },
   { src: "/images/image2.jpeg", label: "SDG Youth Program", category: "Events" },
   { src: "/images/image3.jpeg", label: "Peace Building Activity", category: "Field" },
@@ -13,7 +12,6 @@ const ALL_IMAGES = [
   { src: "/images/image8.jpeg", label: "MSI Program Launch", category: "Events" },
   { src: "/images/image9.jpeg", label: "Stakeholder Meeting", category: "Meetings" },
   { src: "/images/image10.jpeg", label: "Youth Orientation", category: "Training" },
-  // New 15
   { src: "/images/img-1.jpeg", label: "Community Outreach", category: "Field" },
   { src: "/images/img-2.jpeg", label: "Community Circle Meeting", category: "Meetings" },
   { src: "/images/img-3.jpeg", label: "Public Awareness Event", category: "Events" },
@@ -33,15 +31,20 @@ const ALL_IMAGES = [
 
 const CATEGORIES = ["All", "Events", "Training", "Meetings", "Field", "Education"];
 
-export default function Gallery() {
+export default function Gallery({ data }) {
   const titleRef = useFadeUp(0);
   const gridRef = useFadeUp(150);
   const [lightbox, setLightbox] = useState(null);
   const [activeCategory, setActiveCategory] = useState("All");
 
+  const allImages = data || DEFAULT_IMAGES;
+
   const filtered = activeCategory === "All"
-    ? ALL_IMAGES
-    : ALL_IMAGES.filter((img) => img.category === activeCategory);
+    ? allImages
+    : allImages.filter((img) => img.category === activeCategory);
+
+  // Build dynamic categories from data
+  const dynamicCategories = ["All", ...new Set(allImages.map(img => img.category))];
 
   return (
     <section id="gallery" className="py-28 bg-white">
@@ -53,8 +56,7 @@ export default function Gallery() {
             Photo Gallery
           </p>
           <h2 className="font-display text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-4">
-            Our Work in{" "}
-            <span className="text-green-700">Action</span>
+            Our Work in <span className="text-green-700">Action</span>
           </h2>
           <div className="w-16 h-1 rounded-full bg-linear-to-r from-green-700 to-amber-500 mb-6" />
           <p className="text-gray-500 text-lg leading-relaxed">
@@ -65,7 +67,7 @@ export default function Gallery() {
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap gap-2 mb-10">
-          {CATEGORIES.map((cat) => (
+          {dynamicCategories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
@@ -79,7 +81,7 @@ export default function Gallery() {
               <span className={`ml-2 text-xs px-1.5 py-0.5 rounded-full ${
                 activeCategory === cat ? "bg-white/20 text-white" : "bg-gray-200 text-gray-500"
               }`}>
-                {cat === "All" ? ALL_IMAGES.length : ALL_IMAGES.filter(i => i.category === cat).length}
+                {cat === "All" ? allImages.length : allImages.filter(i => i.category === cat).length}
               </span>
             </button>
           ))}
