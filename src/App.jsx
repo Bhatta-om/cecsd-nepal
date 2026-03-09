@@ -16,7 +16,7 @@ export default function App() {
   const [siteData, setSiteData] = useState(null);
 
   useEffect(() => {
-    fetch('public/content/site.json')
+    fetch('/content/site.json')
       .then(res => res.json())
       .then(data => setSiteData(data))
       .catch(() => setSiteData(null));
