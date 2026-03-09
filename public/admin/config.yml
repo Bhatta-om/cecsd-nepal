@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Bhatta-om/cecsd-nepal
   branch: main
+  base_url: https://cms-oauth.omprakashbhatt731.workers.dev
+  auth_endpoint: /api/auth
 
 media_folder: public/images
 public_folder: /images
