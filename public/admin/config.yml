@@ -6,34 +6,136 @@ media_folder: public/images
 public_folder: /images
 
 collections:
-  - name: "settings"
-    label: "Site Settings"
+  # ==================
+  # SITE SETTINGS
+  # ==================
+  - name: "site_settings"
+    label: "⚙️ Site Settings"
     files:
-      - name: "general"
-        label: "General Settings"
-        file: "src/data.js"
+      - name: "stats"
+        label: "Statistics (Numbers)"
+        file: "content/stats.json"
         fields:
-          - label: "Site Title"
-            name: "siteTitle"
-            widget: "string"
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
 
-  - name: "gallery"
-    label: "Gallery"
-    folder: "public/images/gallery"
+  # ==================
+  # PROGRAMS
+  # ==================
+  - name: "programs"
+    label: "📚 Programs"
+    folder: "content/programs"
     create: true
     slug: "{{slug}}"
     fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Image"
-        name: "image"
-        widget: "image"
+      - { label: "Icon (emoji)", name: "icon", widget: "string" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "desc", widget: "text" }
+      - label: "Border Color"
+        name: "color"
+        widget: "select"
+        options:
+          - "border-emerald-700"
+          - "border-blue-800"
+          - "border-red-800"
+          - "border-indigo-700"
+          - "border-purple-700"
+          - "border-teal-700"
+
+  # ==================
+  # STRATEGIES
+  # ==================
+  - name: "strategies"
+    label: "🎯 Strategies"
+    folder: "content/strategies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "desc", widget: "text" }
+
+  # ==================
+  # TEAM MEMBERS
+  # ==================
+  - name: "team"
+    label: "👥 Team Members"
+    folder: "content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Full Name", name: "name", widget: "string" }
+      - { label: "Role/Position", name: "role", widget: "string" }
+      - { label: "Education", name: "edu", widget: "string" }
+      - { label: "Experience", name: "exp", widget: "string" }
+      - label: "Gender"
+        name: "gender"
+        widget: "select"
+        options:
+          - { label: "Male", value: "M" }
+          - { label: "Female", value: "F" }
+
+  # ==================
+  # CORE STAFF
+  # ==================
+  - name: "core_staff"
+    label: "🧑‍💼 Core Staff"
+    folder: "content/staff"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Full Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Phone", name: "phone", widget: "string", required: false }
+
+  # ==================
+  # GALLERY
+  # ==================
+  - name: "gallery"
+    label: "🖼️ Gallery"
+    folder: "content/gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
       - label: "Category"
         name: "category"
         widget: "select"
         options:
-          - "Community Meetings"
-          - "Training"
+          - "Community Meeting"
           - "Field Activities"
-          - "Events"
+          - "Advocacy Program"
+          - "Capacity Building"
+          - "Women Empowerment"
+          - "Peace Building"
+          - "Anti-Trafficking Awareness"
+          - "Youth Program"
+          - "Training Session"
+          - "Community Outreach"
+      - { label: "Date", name: "date", widget: "datetime", required: false }
+
+  # ==================
+  # NEWS & UPDATES
+  # ==================
+  - name: "news"
+    label: "📰 News & Updates"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "News"
+          - "Event"
+          - "Achievement"
+          - "Announcement"
+      - { label: "Content", name: "body", widget: "markdown" }
