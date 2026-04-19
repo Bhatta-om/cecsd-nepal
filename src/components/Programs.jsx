@@ -47,7 +47,6 @@ export default function Programs({ data, ongoingPrograms }) {
               </h2>
               <div className="w-16 h-1 rounded-full bg-linear-to-r from-amber-500 to-green-700 mb-4" />
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {ongoing.map((item, i) => (
                 <OngoingCard key={i} item={item} index={i} />
