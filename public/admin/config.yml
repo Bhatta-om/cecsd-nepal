@@ -115,7 +115,7 @@ collections:
                   - "Field"
                   - "Education"
 
-            - label: "🔄 Ongoing Programs"
+          - label: "🔄 Ongoing Programs"
             name: "ongoing_programs"
             widget: "list"
             fields:
@@ -123,4 +123,4 @@ collections:
               - { label: "Funded By", name: "funded_by", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
               - { label: "Status", name: "status", widget: "string", default: "Ongoing" }
-              - { label: "PDF Document (optional)", name: "pdf", widget: "file", required: false, media_folder: "/public/documents", public_folder: "/documents" }
+              - { label: "PDF Document (optional)", name: "pdf", widget: "file", required: false, media_folder: "public/documents", public_folder: "/documents" }
