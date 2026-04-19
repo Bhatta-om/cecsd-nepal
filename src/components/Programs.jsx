@@ -60,19 +60,25 @@ export default function Programs({ data, ongoingPrograms }) {
         )}
       </div>
 
-      {/* PDF Modal */}
+      {/* PDF Modal using Google Docs Viewer */}
       {viewingPdf && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="bg-white rounded-2xl w-full max-w-4xl h-[90vh] flex flex-col shadow-2xl">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          onClick={() => setViewingPdf(null)}
+        >
+          <div
+            className="bg-white rounded-2xl w-full max-w-4xl h-[90vh] flex flex-col shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-center justify-between px-6 py-4 border-b">
-              <h3 className="font-bold text-gray-800 text-lg">Document Viewer</h3>
+              <h3 className="font-bold text-gray-800 text-lg">📄 Document Viewer</h3>
               <div className="flex gap-3">
                 <a
                   href={viewingPdf}
                   download
                   className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors duration-200"
                 >
-                  📄 Download
+                  📥 Download
                 </a>
                 <button
                   onClick={() => setViewingPdf(null)}
@@ -84,8 +90,8 @@ export default function Programs({ data, ongoingPrograms }) {
             </div>
             <div className="flex-1 overflow-hidden rounded-b-2xl">
               <iframe
-                src={viewingPdf}
-                className="w-full h-full"
+                src={`https://docs.google.com/viewer?url=https://cecsd-nepal.pages.dev${viewingPdf}&embedded=true`}
+                className="w-full h-full border-0"
                 title="Document Viewer"
               />
             </div>
