@@ -29,7 +29,7 @@ export default function App() {
       <Hero data={siteData?.hero} />
       <StatsBar data={siteData?.stats} />
       <About data={siteData?.about} vmg={siteData?.vmg} />
-      <Programs data={siteData?.programs} />
+     <Programs data={siteData?.programs} ongoingPrograms={siteData?.ongoing_programs} />
       <Strategies data={siteData?.strategies} />
       <Team data={siteData?.team} staff={siteData?.core_staff} />
       <Gallery data={siteData?.gallery} />
