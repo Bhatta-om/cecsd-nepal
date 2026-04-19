@@ -234,6 +234,15 @@
       "category": "Events"
     }
   ],
+  "ongoing_programs": [
+    {
+      "status": "Ongoing",
+      "title": "Parliament Support Program (PSP)",
+      "funded_by": "UNDP Nepal (United Nations Development Programme)",
+      "desc": "CSDS Nepal is actively participating in the Parliament Support Program (PSP) implemented by UNDP Nepal. This program aims to strengthen parliamentary processes, enhance the capacity of civil society organizations, and promote democratic governance at the provincial level in Sudurpachim Province.",
+      "doc_image": "/images/letter.jpg"
+    }
+  ],
   "hero": {
     "tag": "NGO · Sudurpachim Province · Nepal",
     "heading_line1": "Empowering Communities,",
