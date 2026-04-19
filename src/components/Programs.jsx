@@ -1,20 +1,12 @@
-import { useState } from "react";
 import useFadeUp from "../hooks/useFadeUp";
 import { PROGRAMS } from "../data";
 
 const DEFAULT_PROGRAMS = PROGRAMS;
-const SITE_URL = "https://cecsd-nepal.pages.dev";
 
 export default function Programs({ data, ongoingPrograms }) {
   const titleRef = useFadeUp(0);
   const programs = data || DEFAULT_PROGRAMS;
   const ongoing = ongoingPrograms || [];
-  const [viewingPdf, setViewingPdf] = useState(null);
-
-  const getFullPdfUrl = (pdfPath) => {
-    if (pdfPath.startsWith("http")) return pdfPath;
-    return `${SITE_URL}${pdfPath}`;
-  };
 
   return (
     <section id="programs" className="py-28 bg-gray-50">
@@ -54,56 +46,12 @@ export default function Programs({ data, ongoingPrograms }) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {ongoing.map((item, i) => (
-                <OngoingCard
-                  key={i}
-                  item={item}
-                  index={i}
-                  onView={() => setViewingPdf(getFullPdfUrl(item.pdf))}
-                />
+                <OngoingCard key={i} item={item} index={i} />
               ))}
             </div>
           </div>
         )}
       </div>
-
-      {/* PDF Modal using Google Docs Viewer */}
-      {viewingPdf && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
-          onClick={() => setViewingPdf(null)}
-        >
-          <div
-            className="bg-white rounded-2xl w-full max-w-4xl h-[90vh] flex flex-col shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between px-6 py-4 border-b">
-              <h3 className="font-bold text-gray-800 text-lg">📄 Document Viewer</h3>
-              <div className="flex gap-3">
-                <a
-                  href={viewingPdf}
-                  download
-                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors duration-200"
-                >
-                  📥 Download
-                </a>
-                <button
-                  onClick={() => setViewingPdf(null)}
-                  className="inline-flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-semibold px-4 py-2 rounded-xl transition-colors duration-200"
-                >
-                  ✕ Close
-                </button>
-              </div>
-            </div>
-            <div className="flex-1 overflow-hidden rounded-b-2xl">
-              <iframe
-                src={`https://docs.google.com/viewer?url=${encodeURIComponent(viewingPdf)}&embedded=true`}
-                className="w-full h-full border-0"
-                title="Document Viewer"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
@@ -125,7 +73,7 @@ function ProgramCard({ program, index }) {
   );
 }
 
-function OngoingCard({ item, index, onView }) {
+function OngoingCard({ item, index }) {
   const ref = useFadeUp(index * 80);
   return (
     <div
@@ -150,15 +98,17 @@ function OngoingCard({ item, index, onView }) {
       <p className="text-gray-500 text-sm leading-relaxed mb-5">{item.desc}</p>
       {item.pdf && (
         <div className="flex gap-3 flex-wrap">
-          <button
-            onClick={onView}
+          <a
+            href={item.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
           >
             👁️ View Letter
-          </button>
+          </a>
           <a
-            href={`${SITE_URL}${item.pdf.startsWith("http") ? "" : ""}${item.pdf}`}
-            download
+            href={item.pdf}
+            download="document.pdf"
             className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
           >
             📄 Download Letter
