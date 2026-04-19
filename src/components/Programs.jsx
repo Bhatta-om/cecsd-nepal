@@ -11,7 +11,6 @@ export default function Programs({ data, ongoingPrograms }) {
   return (
     <section id="programs" className="py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div ref={titleRef} className="fade-up max-w-2xl mb-16">
           <p className="text-green-700 text-xs font-bold tracking-widest uppercase mb-3">
             What We Do
@@ -28,14 +27,12 @@ export default function Programs({ data, ongoingPrograms }) {
           </p>
         </div>
 
-        {/* Core Program Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((program, i) => (
             <ProgramCard key={program.title} program={program} index={i} />
           ))}
         </div>
 
-        {/* Ongoing Programs Section */}
         {ongoing.length > 0 && (
           <div className="mt-20">
             <div className="max-w-2xl mb-10">
@@ -47,7 +44,6 @@ export default function Programs({ data, ongoingPrograms }) {
               </h2>
               <div className="w-16 h-1 rounded-full bg-linear-to-r from-amber-500 to-green-700 mb-4" />
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {ongoing.map((item, i) => (
                 <OngoingCard key={i} item={item} index={i} />
@@ -101,7 +97,7 @@ function OngoingCard({ item, index }) {
       </div>
       <p className="text-gray-500 text-sm leading-relaxed mb-5">{item.desc}</p>
       {item.pdf && (
-        
+        <a
           href={item.pdf}
           target="_blank"
           rel="noopener noreferrer"
