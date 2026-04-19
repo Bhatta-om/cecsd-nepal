@@ -3,12 +3,18 @@ import useFadeUp from "../hooks/useFadeUp";
 import { PROGRAMS } from "../data";
 
 const DEFAULT_PROGRAMS = PROGRAMS;
+const SITE_URL = "https://cecsd-nepal.pages.dev";
 
 export default function Programs({ data, ongoingPrograms }) {
   const titleRef = useFadeUp(0);
   const programs = data || DEFAULT_PROGRAMS;
   const ongoing = ongoingPrograms || [];
   const [viewingPdf, setViewingPdf] = useState(null);
+
+  const getFullPdfUrl = (pdfPath) => {
+    if (pdfPath.startsWith("http")) return pdfPath;
+    return `${SITE_URL}${pdfPath}`;
+  };
 
   return (
     <section id="programs" className="py-28 bg-gray-50">
@@ -52,7 +58,7 @@ export default function Programs({ data, ongoingPrograms }) {
                   key={i}
                   item={item}
                   index={i}
-                  onView={() => setViewingPdf(item.pdf)}
+                  onView={() => setViewingPdf(getFullPdfUrl(item.pdf))}
                 />
               ))}
             </div>
@@ -90,7 +96,7 @@ export default function Programs({ data, ongoingPrograms }) {
             </div>
             <div className="flex-1 overflow-hidden rounded-b-2xl">
               <iframe
-                src={`https://docs.google.com/viewer?url=https://cecsd-nepal.pages.dev${viewingPdf}&embedded=true`}
+                src={`https://docs.google.com/viewer?url=${encodeURIComponent(viewingPdf)}&embedded=true`}
                 className="w-full h-full border-0"
                 title="Document Viewer"
               />
@@ -151,7 +157,7 @@ function OngoingCard({ item, index, onView }) {
             👁️ View Letter
           </button>
           <a
-            href={item.pdf}
+            href={`${SITE_URL}${item.pdf.startsWith("http") ? "" : ""}${item.pdf}`}
             download
             className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
           >
