@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useFadeUp from "../hooks/useFadeUp";
 import { PROGRAMS } from "../data";
 
@@ -7,6 +8,7 @@ export default function Programs({ data, ongoingPrograms }) {
   const titleRef = useFadeUp(0);
   const programs = data || DEFAULT_PROGRAMS;
   const ongoing = ongoingPrograms || [];
+  const [viewingDoc, setViewingDoc] = useState(null);
 
   return (
     <section id="programs" className="py-28 bg-gray-50">
@@ -46,12 +48,51 @@ export default function Programs({ data, ongoingPrograms }) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {ongoing.map((item, i) => (
-                <OngoingCard key={i} item={item} index={i} />
+                <OngoingCard
+                  key={i}
+                  item={item}
+                  index={i}
+                  onView={() => setViewingDoc(item)}
+                />
               ))}
             </div>
           </div>
         )}
       </div>
+
+      {/* Document Image Modal */}
+      {viewingDoc && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setViewingDoc(null)}
+        >
+          <div
+            className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-6 py-4 border-b">
+              <h3 className="font-bold text-gray-800 text-lg">
+                📄 {viewingDoc.title}
+              </h3>
+              <button
+                onClick={() => setViewingDoc(null)}
+                className="inline-flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-semibold px-4 py-2 rounded-xl transition-colors duration-200"
+              >
+                ✕ Close
+              </button>
+            </div>
+            <div className="overflow-y-auto p-4">
+              {viewingDoc.doc_image && (
+                <img
+                  src={viewingDoc.doc_image}
+                  alt={viewingDoc.title}
+                  className="w-full rounded-xl object-contain"
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -73,47 +114,34 @@ function ProgramCard({ program, index }) {
   );
 }
 
-function OngoingCard({ item, index }) {
+function OngoingCard({ item, index, onView }) {
   const ref = useFadeUp(index * 80);
   return (
     <div
       ref={ref}
       className="fade-up bg-white rounded-2xl p-8 border border-l-4 border-amber-500 shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
     >
-      <div className="flex items-start justify-between gap-4 mb-4">
-        <div>
-          <span className="inline-block bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
-            {item.status || "Ongoing"}
-          </span>
-          <h3 className="font-display text-xl font-bold text-gray-900">
-            {item.title}
-          </h3>
-          {item.funded_by && (
-            <p className="text-green-700 text-sm font-semibold mt-1">
-              Funded by: {item.funded_by}
-            </p>
-          )}
-        </div>
+      <div className="mb-4">
+        <span className="inline-block bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full mb-3">
+          {item.status || "Ongoing"}
+        </span>
+        <h3 className="font-display text-xl font-bold text-gray-900">
+          {item.title}
+        </h3>
+        {item.funded_by && (
+          <p className="text-green-700 text-sm font-semibold mt-1">
+            Funded by: {item.funded_by}
+          </p>
+        )}
       </div>
       <p className="text-gray-500 text-sm leading-relaxed mb-5">{item.desc}</p>
-      {item.pdf && (
-        <div className="flex gap-3 flex-wrap">
-          <a
-            href={item.pdf}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
-          >
-            👁️ View Letter
-          </a>
-          <a
-            href={item.pdf}
-            download="document.pdf"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
-          >
-            📄 Download Letter
-          </a>
-        </div>
+      {item.doc_image && (
+        <button
+          onClick={onView}
+          className="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
+        >
+          👁️ View Document
+        </button>
       )}
     </div>
   );

@@ -21,11 +21,27 @@ collections:
             widget: "object"
             fields:
               - { label: "Tag Line", name: "tag", widget: "string" }
-              - { label: "Heading Line 1", name: "heading_line1", widget: "string" }
-              - { label: "Heading Line 2", name: "heading_line2", widget: "string" }
+              - {
+                  label: "Heading Line 1",
+                  name: "heading_line1",
+                  widget: "string",
+                }
+              - {
+                  label: "Heading Line 2",
+                  name: "heading_line2",
+                  widget: "string",
+                }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Primary Button", name: "btn_primary", widget: "string" }
-              - { label: "Secondary Button", name: "btn_secondary", widget: "string" }
+              - {
+                  label: "Primary Button",
+                  name: "btn_primary",
+                  widget: "string",
+                }
+              - {
+                  label: "Secondary Button",
+                  name: "btn_secondary",
+                  widget: "string",
+                }
 
           - label: "ℹ️ About Section"
             name: "about"
@@ -34,7 +50,11 @@ collections:
               - { label: "Tag", name: "tag", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Years of Service", name: "years_of_service", widget: "string" }
+              - {
+                  label: "Years of Service",
+                  name: "years_of_service",
+                  widget: "string",
+                }
 
           - label: "📊 Statistics"
             name: "stats"
@@ -97,7 +117,12 @@ collections:
             fields:
               - { label: "Full Name", name: "name", widget: "string" }
               - { label: "Role", name: "role", widget: "string" }
-              - { label: "Phone", name: "phone", widget: "string", required: false }
+              - {
+                  label: "Phone",
+                  name: "phone",
+                  widget: "string",
+                  required: false,
+                }
 
           - label: "🖼️ Gallery"
             name: "gallery"
@@ -122,5 +147,15 @@ collections:
               - { label: "Project Title", name: "title", widget: "string" }
               - { label: "Funded By", name: "funded_by", widget: "string" }
               - { label: "Description", name: "desc", widget: "text" }
-              - { label: "Status", name: "status", widget: "string", default: "Ongoing" }
-              - { label: "PDF Document (optional)", name: "pdf", widget: "file", required: false, media_folder: "public/documents", public_folder: "/documents" }
+              - {
+                  label: "Status",
+                  name: "status",
+                  widget: "string",
+                  default: "Ongoing",
+                }
+              - {
+                  label: "Document Image (screenshot of letter)",
+                  name: "doc_image",
+                  widget: "image",
+                  required: false,
+                }
