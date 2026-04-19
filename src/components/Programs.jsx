@@ -97,14 +97,23 @@ function OngoingCard({ item, index }) {
       </div>
       <p className="text-gray-500 text-sm leading-relaxed mb-5">{item.desc}</p>
       {item.pdf && (
-        <a
-          href={item.pdf}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
-        >
-          📄 Download Letter / Document
-        </a>
+        <div className="flex gap-3 flex-wrap">
+          <a
+            href={item.pdf}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
+          >
+            👁️ View Letter
+          </a>
+          <a
+            href={item.pdf}
+            download
+            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors duration-200"
+          >
+            📄 Download Letter
+          </a>
+        </div>
       )}
     </div>
   );
